@@ -5,7 +5,7 @@ import (
 )
 
 type CoinTicker struct {
-	name string
+	Name string
 	EUR  string `json:"EUR"`
 	USD  string `json:"USD"`
 	CHF  string `json:"CHF"`
@@ -30,7 +30,7 @@ func (c *Client) TickerGet() (coins []CoinTicker, err error) {
 		coinByte, _ := json.Marshal(value)
 		coin := CoinTicker{}
 		_ = json.Unmarshal(coinByte, &coin)
-		coin.name = key
+		coin.Name = key
 		coins = append(coins, coin)
 	}
 
